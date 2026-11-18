@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
+import { useSearchParamState } from "./assets/useSearchParam";
 
 type ViewMode = "grid" | "manhwa";
 
@@ -9,7 +10,7 @@ interface ImageData {
 }
 
 function App() {
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useSearchParamState("query", "");
   const [images, setImages] = useState<ImageData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
